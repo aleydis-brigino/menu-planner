@@ -1,0 +1,13 @@
+<nav class="app-nav" aria-label="Main navigation">
+  <div class="nav-brand">{{ title }}</div>
+  <ul class="nav-links">
+    <li><a routerLink="/dishes" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dishes</a></li>
+    <li><a routerLink="/shopping-list" routerLinkActive="active">Shopping List</a></li>
+    <li><a routerLink="/import-export" routerLinkActive="active">Import/Export</a></li>
+    <li><a routerLink="/dishes/add" routerLinkActive="active" class="nav-add-btn">Add Dish</a></li>
+  </ul>
+</nav>
+
+<main class="app-content">
+  <router-outlet></router-outlet>
+</main>

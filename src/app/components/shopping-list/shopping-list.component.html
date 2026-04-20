@@ -1,0 +1,36 @@
+<div class="shopping-list-container">
+  <div class="shopping-list-header">
+    <h2>Shopping List</h2>
+    <button
+      *ngIf="hasSelection"
+      class="btn-print"
+      (click)="print()"
+      aria-label="Print shopping list"
+    >
+      Print
+    </button>
+  </div>
+
+  <div class="shopping-list" *ngIf="hasSelection; else emptyState">
+    <div
+      *ngFor="let item of items; let i = index"
+      class="shopping-item"
+      [class.checked]="item.checked"
+    >
+      <label class="item-label">
+        <input
+          type="checkbox"
+          [checked]="item.checked"
+          (change)="toggleChecked(i)"
+          [attr.aria-label]="'Mark ' + item.name + ' as purchased'"
+        />
+        <span class="item-name">{{ item.name }}</span>
+        <span class="item-quantity">{{ item.quantity }} {{ item.unit }}</span>
+      </label>
+    </div>
+  </div>
+
+  <ng-template #emptyState>
+    <p class="empty-message">Select at least one dish</p>
+  </ng-template>
+</div>

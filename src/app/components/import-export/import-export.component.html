@@ -1,0 +1,37 @@
+<div class="import-export-container">
+  <h2>Import / Export</h2>
+
+  <div class="actions">
+    <button
+      class="btn-export"
+      (click)="exportCollection()"
+      aria-label="Export dish collection as JSON"
+    >
+      Export Collection
+    </button>
+
+    <input
+      #fileInput
+      type="file"
+      accept=".json,application/json"
+      (change)="onFileSelected($event)"
+      class="file-input-hidden"
+      aria-label="Import dish collection from JSON file"
+    />
+    <button
+      class="btn-import"
+      (click)="triggerFileInput(fileInput)"
+      aria-label="Import dish collection from JSON file"
+    >
+      Import Collection
+    </button>
+  </div>
+
+  <div class="message error-message" *ngIf="errorMessage" role="alert">
+    {{ errorMessage }}
+  </div>
+
+  <div class="message success-message" *ngIf="successMessage" role="status">
+    {{ successMessage }}
+  </div>
+</div>

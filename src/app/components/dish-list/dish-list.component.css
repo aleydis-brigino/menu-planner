@@ -1,0 +1,97 @@
+.dish-list-container {
+  padding: 1rem;
+}
+
+.dish-list-container h2 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+}
+
+.dish-list {
+  max-height: 70vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dish-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.dish-item.selected {
+  background-color: #e8f5e9;
+  border-color: #4caf50;
+}
+
+.dish-selection {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  flex: 1;
+  min-width: 0;
+}
+
+.dish-selection input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.dish-name {
+  font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dish-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.btn-edit,
+.btn-delete {
+  padding: 0.4rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.btn-edit {
+  background-color: #1976d2;
+  color: #fff;
+}
+
+.btn-edit:hover {
+  background-color: #1565c0;
+}
+
+.btn-delete {
+  background-color: #d32f2f;
+  color: #fff;
+}
+
+.btn-delete:hover {
+  background-color: #c62828;
+}
+
+.empty-message {
+  text-align: center;
+  color: #666;
+  padding: 2rem 1rem;
+  font-style: italic;
+}

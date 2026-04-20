@@ -1,0 +1,115 @@
+<div class="dish-form-container">
+  <h2>{{ isEditMode ? 'Edit Dish' : 'Add Dish' }}</h2>
+
+  <form [formGroup]="dishForm" (ngSubmit)="onSubmit()">
+    <!-- Dish Name -->
+    <div class="form-field">
+      <label for="dishName">Dish Name</label>
+      <input
+        id="dishName"
+        type="text"
+        formControlName="name"
+        placeholder="Enter dish name"
+      />
+      <span
+        class="error-message"
+        *ngIf="dishForm.get('name')?.touched && dishForm.get('name')?.hasError('required')"
+      >
+        Dish name is required.
+      </span>
+    </div>
+
+    <!-- Ingredients -->
+    <div class="ingredients-section">
+      <h3>Ingredients</h3>
+
+      <div formArrayName="ingredients">
+        <div
+          *ngFor="let ingredient of ingredients.controls; let i = index"
+          [formGroupName]="i"
+          class="ingredient-row"
+        >
+          <div class="ingredient-fields">
+            <div class="form-field">
+              <label [for]="'ingredientName' + i">Name</label>
+              <input
+                [id]="'ingredientName' + i"
+                type="text"
+                formControlName="name"
+                placeholder="Ingredient name"
+              />
+              <span
+                class="error-message"
+                *ngIf="ingredient.get('name')?.touched && ingredient.get('name')?.hasError('required')"
+              >
+                Ingredient name is required.
+              </span>
+            </div>
+
+            <div class="form-field">
+              <label [for]="'ingredientQuantity' + i">Quantity</label>
+              <input
+                [id]="'ingredientQuantity' + i"
+                type="number"
+                formControlName="quantity"
+                min="1"
+              />
+              <span
+                class="error-message"
+                *ngIf="ingredient.get('quantity')?.touched && ingredient.get('quantity')?.hasError('required')"
+              >
+                Quantity is required.
+              </span>
+              <span
+                class="error-message"
+                *ngIf="ingredient.get('quantity')?.touched && ingredient.get('quantity')?.hasError('min')"
+              >
+                Quantity must be at least 1.
+              </span>
+            </div>
+
+            <div class="form-field">
+              <label [for]="'ingredientUnit' + i">Unit</label>
+              <input
+                [id]="'ingredientUnit' + i"
+                type="text"
+                formControlName="unit"
+                placeholder="e.g., g, ml, pcs"
+              />
+              <span
+                class="error-message"
+                *ngIf="ingredient.get('unit')?.touched && ingredient.get('unit')?.hasError('required')"
+              >
+                Unit is required.
+              </span>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="btn-remove"
+            (click)="removeIngredient(i)"
+            [disabled]="ingredients.length <= 1"
+            aria-label="Remove ingredient"
+          >
+            Remove
+          </button>
+        </div>
+      </div>
+
+      <button type="button" class="btn-add" (click)="addIngredient()">
+        + Add Ingredient
+      </button>
+    </div>
+
+    <!-- Form Actions -->
+    <div class="form-actions">
+      <button type="submit" class="btn-submit">
+        {{ isEditMode ? 'Update Dish' : 'Add Dish' }}
+      </button>
+      <button type="button" class="btn-cancel" (click)="cancel()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
