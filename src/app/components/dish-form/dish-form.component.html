@@ -52,7 +52,8 @@
                 [id]="'ingredientQuantity' + i"
                 type="number"
                 formControlName="quantity"
-                min="1"
+                min="0.01"
+                step="any"
               />
               <span
                 class="error-message"
@@ -64,7 +65,7 @@
                 class="error-message"
                 *ngIf="ingredient.get('quantity')?.touched && ingredient.get('quantity')?.hasError('min')"
               >
-                Quantity must be at least 1.
+                Quantity must be greater than 0.
               </span>
             </div>
 

@@ -1,15 +1,27 @@
 <div class="shopping-list-container">
   <div class="shopping-list-header">
     <h2>Shopping List</h2>
-    <button
-      *ngIf="hasSelection"
-      class="btn-print"
-      (click)="print()"
-      aria-label="Print shopping list"
-    >
-      Print
-    </button>
+    <div class="header-actions" *ngIf="hasSelection">
+      <button
+        class="btn-copy"
+        (click)="copyAsText()"
+        aria-label="Copy shopping list as text"
+      >
+        {{ copyButtonText }}
+      </button>
+      <button
+        class="btn-print"
+        (click)="print()"
+        aria-label="Print shopping list"
+      >
+        Print
+      </button>
+    </div>
   </div>
+
+  <p class="legend" *ngIf="hasSelection">
+    ☐ Need to buy · ☑ Already on hand
+  </p>
 
   <div class="shopping-list" *ngIf="hasSelection; else emptyState">
     <div

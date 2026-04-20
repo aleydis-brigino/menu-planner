@@ -29,6 +29,32 @@
   background-color: #1565c0;
 }
 
+.header-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-copy {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #388e3c;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.btn-copy:hover {
+  background-color: #2e7d32;
+}
+
+.legend {
+  font-size: 0.8rem;
+  color: #777;
+  margin: 0 0 0.75rem;
+}
+
 .shopping-list {
   display: flex;
   flex-direction: column;

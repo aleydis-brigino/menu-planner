@@ -14,6 +14,7 @@ import { ShoppingListService } from '../../services/shopping-list.service';
 export class ShoppingListComponent implements OnInit, OnDestroy {
   items: ShoppingListItem[] = [];
   hasSelection = false;
+  copyButtonText = 'Copy as Text';
 
   private selectedIdsSubscription!: Subscription;
 
@@ -38,6 +39,22 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   toggleChecked(index: number): void {
     this.items[index].checked = !this.items[index].checked;
+  }
+
+  copyAsText(): void {
+    const lines = this.items.map(item => {
+      const check = item.checked ? '☑' : '☐';
+      const suffix = item.checked ? ' (on hand)' : '';
+      return `${check} ${item.name} - ${item.quantity} ${item.unit}${suffix}`;
+    });
+    const text = 'Shopping List\n' + lines.join('\n');
+
+    navigator.clipboard.writeText(text).then(() => {
+      this.copyButtonText = 'Copied!';
+      setTimeout(() => {
+        this.copyButtonText = 'Copy as Text';
+      }, 2000);
+    });
   }
 
   print(): void {

@@ -44,7 +44,7 @@ export class DishFormComponent implements OnInit {
   private createIngredientGroup(): FormGroup {
     return this.fb.group({
       name: ['', [Validators.required]],
-      quantity: [1, [Validators.required, Validators.min(1)]],
+      quantity: [1, [Validators.required, Validators.min(0.01)]],
       unit: ['', [Validators.required]]
     });
   }
@@ -74,7 +74,7 @@ export class DishFormComponent implements OnInit {
       dish.ingredients.forEach(ingredient => {
         const group = this.fb.group({
           name: [ingredient.name, [Validators.required]],
-          quantity: [ingredient.quantity, [Validators.required, Validators.min(1)]],
+          quantity: [ingredient.quantity, [Validators.required, Validators.min(0.01)]],
           unit: [ingredient.unit, [Validators.required]]
         });
         this.ingredients.push(group);
