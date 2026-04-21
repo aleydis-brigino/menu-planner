@@ -3,8 +3,25 @@
 }
 
 .dish-list-container h2 {
-  margin: 0 0 1rem;
+  margin: 0 0 1.25rem;
   font-size: 1.5rem;
+}
+
+.category-frame {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+  background-color: #fafafa;
+}
+
+.category-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #444;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e0e0e0;
 }
 
 .dish-list {

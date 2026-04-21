@@ -1,37 +1,43 @@
 <div class="dish-list-container">
   <h2>My Dishes</h2>
 
-  <div class="dish-list" *ngIf="dishes.length > 0; else emptyState">
-    <div
-      *ngFor="let dish of dishes"
-      class="dish-item"
-      [class.selected]="isSelected(dish.id)"
-    >
-      <label class="dish-selection">
-        <input
-          type="checkbox"
-          [checked]="isSelected(dish.id)"
-          (change)="toggleSelection(dish.id)"
-          [attr.aria-label]="'Select ' + dish.name"
-        />
-        <span class="dish-name">{{ dish.name }}</span>
-      </label>
+  <div *ngIf="dishes.length > 0; else emptyState">
+    <div *ngFor="let cat of activeCategories" class="category-frame">
+      <h3 class="category-title">{{ cat }}</h3>
 
-      <div class="dish-actions">
-        <button
-          class="btn-edit"
-          (click)="editDish(dish.id)"
-          [attr.aria-label]="'Edit ' + dish.name"
+      <div class="dish-list">
+        <div
+          *ngFor="let dish of dishesByCategory[cat]"
+          class="dish-item"
+          [class.selected]="isSelected(dish.id)"
         >
-          Edit
-        </button>
-        <button
-          class="btn-delete"
-          (click)="deleteDish(dish.id)"
-          [attr.aria-label]="'Delete ' + dish.name"
-        >
-          Delete
-        </button>
+          <label class="dish-selection">
+            <input
+              type="checkbox"
+              [checked]="isSelected(dish.id)"
+              (change)="toggleSelection(dish.id)"
+              [attr.aria-label]="'Select ' + dish.name"
+            />
+            <span class="dish-name">{{ dish.name }}</span>
+          </label>
+
+          <div class="dish-actions">
+            <button
+              class="btn-edit"
+              (click)="editDish(dish.id)"
+              [attr.aria-label]="'Edit ' + dish.name"
+            >
+              Edit
+            </button>
+            <button
+              class="btn-delete"
+              (click)="deleteDish(dish.id)"
+              [attr.aria-label]="'Delete ' + dish.name"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

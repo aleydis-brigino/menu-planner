@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DishCollection } from '../models/dish.model';
+import { DishCollection, DISH_CATEGORIES } from '../models/dish.model';
 
 const STORAGE_KEY = 'menu-planner-dishes';
 
@@ -89,11 +89,20 @@ export class StorageService {
       if (!Array.isArray(d['ingredients'])) {
         return false;
       }
+      // Migrate dishes without a category to 'Others'
+      if (!d['category'] || typeof d['category'] !== 'string') {
+        (d as Record<string, unknown>)['category'] = 'Others';
+      }
+
       return d['ingredients'].every((ing: unknown) => {
         if (!ing || typeof ing !== 'object') {
           return false;
         }
         const i = ing as Record<string, unknown>;
+        // Migrate ingredients without a category to 'Others'
+        if (!i['category'] || typeof i['category'] !== 'string') {
+          (i as Record<string, unknown>)['category'] = 'Others';
+        }
         return (
           typeof i['name'] === 'string' &&
           typeof i['quantity'] === 'number' &&

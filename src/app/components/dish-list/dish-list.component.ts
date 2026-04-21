@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Dish } from '../../models/dish.model';
+import { Dish, DISH_CATEGORIES, DishCategory } from '../../models/dish.model';
 import { DishService } from '../../services/dish.service';
 import { ShoppingListService } from '../../services/shopping-list.service';
 
@@ -16,6 +16,8 @@ import { ShoppingListService } from '../../services/shopping-list.service';
 export class DishListComponent implements OnInit, OnDestroy {
   dishes: Dish[] = [];
   selectedDishIds: Set<string> = new Set();
+  categories = DISH_CATEGORIES;
+  dishesByCategory: Record<string, Dish[]> = {};
 
   private dishesSubscription!: Subscription;
   private selectedIdsSubscription!: Subscription;
@@ -29,6 +31,7 @@ export class DishListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.dishesSubscription = this.dishService.dishes$.subscribe(dishes => {
       this.dishes = dishes;
+      this.groupByCategory();
     });
 
     this.selectedIdsSubscription = this.shoppingListService.selectedDishIds$.subscribe(ids => {
@@ -55,5 +58,19 @@ export class DishListComponent implements OnInit, OnDestroy {
 
   deleteDish(dishId: string): void {
     this.dishService.removeDish(dishId);
+  }
+
+  private groupByCategory(): void {
+    this.dishesByCategory = {};
+    for (const cat of this.categories) {
+      const catDishes = this.dishes.filter(d => (d.category || 'Others') === cat);
+      if (catDishes.length > 0) {
+        this.dishesByCategory[cat] = catDishes;
+      }
+    }
+  }
+
+  get activeCategories(): string[] {
+    return this.categories.filter(cat => this.dishesByCategory[cat]?.length > 0);
   }
 }

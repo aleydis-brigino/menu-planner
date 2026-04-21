@@ -23,22 +23,39 @@
     ☐ Need to buy · ☑ Already on hand
   </p>
 
-  <div class="shopping-list" *ngIf="hasSelection; else emptyState">
-    <div
-      *ngFor="let item of items; let i = index"
-      class="shopping-item"
-      [class.checked]="item.checked"
-    >
-      <label class="item-label">
-        <input
-          type="checkbox"
-          [checked]="item.checked"
-          (change)="toggleChecked(i)"
-          [attr.aria-label]="'Mark ' + item.name + ' as purchased'"
-        />
-        <span class="item-name">{{ item.name }}</span>
-        <span class="item-quantity">{{ item.quantity }} {{ item.unit }}</span>
-      </label>
+  <div *ngIf="hasSelection; else emptyState">
+    <div *ngFor="let cat of activeCategories" class="category-frame">
+      <h3 class="category-title">{{ cat }}</h3>
+
+      <div class="shopping-list">
+        <div
+          *ngFor="let item of itemsByCategory[cat]"
+          class="shopping-item"
+          [class.checked]="item.checked"
+        >
+          <div class="item-main">
+            <label class="item-label">
+              <input
+                type="checkbox"
+                [checked]="item.checked"
+                (change)="toggleChecked(item)"
+                [attr.aria-label]="'Mark ' + item.name + ' as purchased'"
+              />
+              <span class="item-name">{{ item.name }}</span>
+              <span class="item-total" *ngIf="item.totalQuantity !== null">
+                {{ item.totalQuantity }} {{ item.totalUnit }}
+              </span>
+            </label>
+
+            <div class="item-sources" *ngIf="item.sources.length > 1">
+              <div *ngFor="let src of item.sources" class="source-line">
+                · {{ src.quantity }} {{ src.unit }}
+                <span class="source-dish">(for {{ src.dishName }})</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

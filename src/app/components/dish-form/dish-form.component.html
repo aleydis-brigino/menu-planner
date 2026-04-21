@@ -19,6 +19,14 @@
       </span>
     </div>
 
+    <!-- Category -->
+    <div class="form-field">
+      <label for="dishCategory">Category</label>
+      <select id="dishCategory" formControlName="category">
+        <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+      </select>
+    </div>
+
     <!-- Ingredients -->
     <div class="ingredients-section">
       <h3>Ingredients</h3>
@@ -71,18 +79,24 @@
 
             <div class="form-field">
               <label [for]="'ingredientUnit' + i">Unit</label>
-              <input
-                [id]="'ingredientUnit' + i"
-                type="text"
-                formControlName="unit"
-                placeholder="e.g., g, ml, pcs"
-              />
+              <select [id]="'ingredientUnit' + i" formControlName="unit">
+                <optgroup *ngFor="let group of unitGroups" [label]="group.label">
+                  <option *ngFor="let u of group.units" [value]="u">{{ u }}</option>
+                </optgroup>
+              </select>
               <span
                 class="error-message"
                 *ngIf="ingredient.get('unit')?.touched && ingredient.get('unit')?.hasError('required')"
               >
                 Unit is required.
               </span>
+            </div>
+
+            <div class="form-field">
+              <label [for]="'ingredientCategory' + i">Category</label>
+              <select [id]="'ingredientCategory' + i" formControlName="category">
+                <option *ngFor="let cat of ingredientCategories" [value]="cat">{{ cat }}</option>
+              </select>
             </div>
           </div>
 
