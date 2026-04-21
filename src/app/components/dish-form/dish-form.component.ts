@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DishService } from '../../services/dish.service';
-import { Dish } from '../../models/dish.model';
+import { Dish, DISH_CATEGORIES, DishCategory, INGREDIENT_CATEGORIES, IngredientCategory, UNIT_GROUPS } from '../../models/dish.model';
 
 @Component({
   selector: 'app-dish-form',
@@ -16,6 +16,9 @@ export class DishFormComponent implements OnInit {
   dishForm!: FormGroup;
   isEditMode = false;
   dishId: string | null = null;
+  categories = DISH_CATEGORIES;
+  ingredientCategories = INGREDIENT_CATEGORIES;
+  unitGroups = UNIT_GROUPS;
 
   constructor(
     private fb: FormBuilder,
@@ -37,6 +40,7 @@ export class DishFormComponent implements OnInit {
   private initForm(): void {
     this.dishForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(1)]],
+      category: ['Others' as DishCategory, [Validators.required]],
       ingredients: this.fb.array([this.createIngredientGroup()])
     });
   }
@@ -45,7 +49,8 @@ export class DishFormComponent implements OnInit {
     return this.fb.group({
       name: ['', [Validators.required]],
       quantity: [1, [Validators.required, Validators.min(0.01)]],
-      unit: ['', [Validators.required]]
+      unit: ['pcs', [Validators.required]],
+      category: ['Others' as IngredientCategory, [Validators.required]]
     });
   }
 
@@ -67,7 +72,7 @@ export class DishFormComponent implements OnInit {
     const dishes = this.dishService.getDishes();
     const dish = dishes.find(d => d.id === id);
     if (dish) {
-      this.dishForm.patchValue({ name: dish.name });
+      this.dishForm.patchValue({ name: dish.name, category: dish.category || 'Others' });
 
       // Clear default ingredient and populate with dish ingredients
       this.ingredients.clear();
@@ -75,7 +80,8 @@ export class DishFormComponent implements OnInit {
         const group = this.fb.group({
           name: [ingredient.name, [Validators.required]],
           quantity: [ingredient.quantity, [Validators.required, Validators.min(0.01)]],
-          unit: [ingredient.unit, [Validators.required]]
+          unit: [ingredient.unit, [Validators.required]],
+          category: [ingredient.category || 'Others', [Validators.required]]
         });
         this.ingredients.push(group);
       });
@@ -91,10 +97,12 @@ export class DishFormComponent implements OnInit {
     const formValue = this.dishForm.value;
     const dishData = {
       name: formValue.name.trim(),
-      ingredients: formValue.ingredients.map((ing: { name: string; quantity: number; unit: string }) => ({
+      category: formValue.category as DishCategory,
+      ingredients: formValue.ingredients.map((ing: { name: string; quantity: number; unit: string; category: string }) => ({
         name: ing.name.trim(),
         quantity: ing.quantity,
-        unit: ing.unit.trim()
+        unit: ing.unit,
+        category: ing.category as IngredientCategory
       }))
     };
 

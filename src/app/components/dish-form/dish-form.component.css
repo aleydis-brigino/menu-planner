@@ -27,17 +27,24 @@ h3 {
   color: #555;
 }
 
-.form-field input {
+.form-field input,
+.form-field select {
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
 }
 
-.form-field input:focus {
+.form-field input:focus,
+.form-field select:focus {
   outline: none;
   border-color: #4a90d9;
   box-shadow: 0 0 0 2px rgba(74, 144, 217, 0.2);
+}
+
+.form-field select {
+  background-color: #fff;
+  cursor: pointer;
 }
 
 .error-message {
