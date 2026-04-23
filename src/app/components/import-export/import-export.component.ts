@@ -1,23 +1,27 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { StorageService } from '../../services/storage.service';
 import { DishService } from '../../services/dish.service';
-import { Dish } from '../../models/dish.model';
+import { Dish, DishCollection } from '../../models/dish.model';
 
 @Component({
   selector: 'app-import-export',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './import-export.component.html',
   styleUrls: ['./import-export.component.css']
 })
 export class ImportExportComponent {
   errorMessage: string | null = null;
   successMessage: string | null = null;
+  showDefaultConfirm = false;
 
   constructor(
     private storageService: StorageService,
-    private dishService: DishService
+    private dishService: DishService,
+    private http: HttpClient
   ) {}
 
   exportCollection(): void {
@@ -44,9 +48,6 @@ export class ImportExportComponent {
       this.storageService.saveCollection(collection);
       this.reloadDishes(collection.dishes);
       this.successMessage = 'Collection imported successfully!';
-      setTimeout(() => {
-        this.successMessage = null;
-      }, 3000);
     } catch (error) {
       this.errorMessage = error instanceof Error ? error.message : 'Failed to import file';
     } finally {
@@ -65,5 +66,29 @@ export class ImportExportComponent {
     for (const dish of importedDishes) {
       this.dishService.addDish(dish);
     }
+  }
+
+  promptLoadDefaults(): void {
+    this.errorMessage = null;
+    this.successMessage = null;
+    this.showDefaultConfirm = true;
+  }
+
+  cancelLoadDefaults(): void {
+    this.showDefaultConfirm = false;
+  }
+
+  confirmLoadDefaults(): void {
+    this.showDefaultConfirm = false;
+    this.http.get<DishCollection>('assets/data/default-dishes.json').subscribe({
+      next: (collection) => {
+        this.storageService.saveCollection(collection);
+        this.reloadDishes(collection.dishes);
+        this.successMessage = 'Default dishes loaded successfully!';
+      },
+      error: () => {
+        this.errorMessage = 'Failed to load default dishes.';
+      }
+    });
   }
 }

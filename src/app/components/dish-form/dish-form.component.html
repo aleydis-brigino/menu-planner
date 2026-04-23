@@ -45,6 +45,7 @@
                 type="text"
                 formControlName="name"
                 placeholder="Ingredient name"
+                (keydown.enter)="$event.preventDefault(); focusIngredientCategory(i)"
               />
               <span
                 class="error-message"

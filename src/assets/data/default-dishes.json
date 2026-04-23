@@ -1,0 +1,655 @@
+{
+  "dishes": [
+    {
+      "name": "Humba",
+      "category": "Pork",
+      "ingredients": [
+        {
+          "name": "Pork Belly",
+          "quantity": 2.5,
+          "unit": "kg",
+          "category": "Meats"
+        },
+        {
+          "name": "Soy sauce",
+          "quantity": 0.5,
+          "unit": "cup",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Vinegar",
+          "quantity": 0.5,
+          "unit": "cup",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Black beans",
+          "quantity": 1,
+          "unit": "can",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Sugar",
+          "quantity": 2,
+          "unit": "tbsp",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Banana blossoms (or mushrooms)",
+          "quantity": 1,
+          "unit": "pack",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Bay leaves",
+          "quantity": 4,
+          "unit": "pcs",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Star anise",
+          "quantity": 2,
+          "unit": "pcs",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Garlic",
+          "quantity": 2,
+          "unit": "tbsp",
+          "category": "Fruits and Vegetables"
+        }
+      ],
+      "id": "f2f0648f-eee6-4d83-ac69-159ab5224977"
+    },
+    {
+      "name": "Pork Sinigang",
+      "category": "Pork",
+      "ingredients": [
+        {
+          "name": "Pork Ribs",
+          "quantity": 1,
+          "unit": "kg",
+          "category": "Meats"
+        },
+        {
+          "name": "Sinigang mix",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Aubergine",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Tomato",
+          "quantity": 2,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Green Beans",
+          "quantity": 1,
+          "unit": "bunch",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Red onion",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Garlic",
+          "quantity": 1,
+          "unit": "tbsp",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Fish sauce",
+          "quantity": 1,
+          "unit": "tbsp",
+          "category": "Condiments and Spices"
+        }
+      ],
+      "id": "4b26aedb-5670-4030-8da2-2eff42ac57a4"
+    },
+    {
+      "name": "Pork BBQ",
+      "category": "Pork",
+      "ingredients": [
+        {
+          "name": "Pork shoulders/belly",
+          "quantity": 1,
+          "unit": "kg",
+          "category": "Meats"
+        },
+        {
+          "name": "Soy sauce",
+          "quantity": 0.25,
+          "unit": "cup",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Ketchup",
+          "quantity": 0.25,
+          "unit": "cup",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Lemon juice",
+          "quantity": 2,
+          "unit": "tbsp",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Black Pepper",
+          "quantity": 1,
+          "unit": "pinch",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Sugar",
+          "quantity": 1,
+          "unit": "tbsp",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Garlic",
+          "quantity": 1,
+          "unit": "tbsp",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Bbq sticks/skewers",
+          "quantity": 1,
+          "unit": "pack",
+          "category": "Others"
+        }
+      ],
+      "id": "45cb9190-2d0c-425d-83dc-8eed875abc10"
+    },
+    {
+      "name": "Chicken Adobo",
+      "category": "Chicken",
+      "ingredients": [
+        {
+          "name": "Chicken thighs",
+          "quantity": 1,
+          "unit": "kg",
+          "category": "Meats"
+        },
+        {
+          "name": "Soy sauce",
+          "quantity": 0.25,
+          "unit": "cup",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Vinegar",
+          "quantity": 0.25,
+          "unit": "cup",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Garlic",
+          "quantity": 1,
+          "unit": "tbsp",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Bay leaves",
+          "quantity": 2,
+          "unit": "pcs",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Sugar",
+          "quantity": 1,
+          "unit": "tbsp",
+          "category": "Condiments and Spices"
+        }
+      ],
+      "id": "90ec82d5-76e0-408f-9858-cf365c186f56"
+    },
+    {
+      "name": "Tinola",
+      "category": "Chicken",
+      "ingredients": [
+        {
+          "name": "Chicken thighs",
+          "quantity": 1,
+          "unit": "kg",
+          "category": "Meats"
+        },
+        {
+          "name": "Papaya/Sayote",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Ginger",
+          "quantity": 2,
+          "unit": "slice",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "White Onion",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Fish sauce",
+          "quantity": 1,
+          "unit": "tbsp",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Chicken bouillion/salt",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Condiments and Spices"
+        }
+      ],
+      "id": "fbe2fe9a-590e-4983-a5fa-6d6b23025e97"
+    },
+    {
+      "name": "Chicken Curry",
+      "category": "Chicken",
+      "ingredients": [
+        {
+          "name": "Chicken breast",
+          "quantity": 0.5,
+          "unit": "kg",
+          "category": "Meats"
+        },
+        {
+          "name": "Potatoes",
+          "quantity": 0.5,
+          "unit": "kg",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Carrots",
+          "quantity": 2,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Paprika",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Ginger",
+          "quantity": 3,
+          "unit": "slice",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Garlic",
+          "quantity": 1,
+          "unit": "tbsp",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "White Onion",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Coconut milk",
+          "quantity": 1,
+          "unit": "can",
+          "category": "Preserved Food"
+        },
+        {
+          "name": "Curry powder",
+          "quantity": 1,
+          "unit": "tbsp",
+          "category": "Condiments and Spices"
+        }
+      ],
+      "id": "f99eb081-48ce-4e92-a05a-924e8bb2ae74"
+    },
+    {
+      "name": "Corned Beef",
+      "category": "Beef",
+      "ingredients": [
+        {
+          "name": "Corned Beef",
+          "quantity": 1,
+          "unit": "can",
+          "category": "Preserved Food"
+        },
+        {
+          "name": "White Onion",
+          "quantity": 2,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Garlic",
+          "quantity": 0.5,
+          "unit": "tbsp",
+          "category": "Fruits and Vegetables"
+        }
+      ],
+      "id": "2108d8d5-f078-4271-895e-0acb21a9384c"
+    },
+    {
+      "name": "Kaldereta",
+      "category": "Beef",
+      "ingredients": [
+        {
+          "name": "Beef chunks",
+          "quantity": 0.5,
+          "unit": "kg",
+          "category": "Meats"
+        },
+        {
+          "name": "Potatoes",
+          "quantity": 0.5,
+          "unit": "kg",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Carrots",
+          "quantity": 2,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Paprika",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Olives",
+          "quantity": 1,
+          "unit": "jar",
+          "category": "Preserved Food"
+        },
+        {
+          "name": "Tomato paste",
+          "quantity": 1,
+          "unit": "can",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Liver pate",
+          "quantity": 1,
+          "unit": "can",
+          "category": "Preserved Food"
+        },
+        {
+          "name": "Soy sauce",
+          "quantity": 1,
+          "unit": "tbsp",
+          "category": "Condiments and Spices"
+        }
+      ],
+      "id": "7bf0b06d-3711-442d-831c-e31bf1c24f0b"
+    },
+    {
+      "name": "Bistek",
+      "category": "Beef",
+      "ingredients": [
+        {
+          "name": "Beef strips/yakiniku",
+          "quantity": 0.5,
+          "unit": "kg",
+          "category": "Meats"
+        },
+        {
+          "name": "White Onion",
+          "quantity": 2,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Lemon",
+          "quantity": 2,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Garlic",
+          "quantity": 1,
+          "unit": "tbsp",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Soy sauce",
+          "quantity": 0.5,
+          "unit": "cup",
+          "category": "Condiments and Spices"
+        }
+      ],
+      "id": "050f9157-0bb3-4685-9dfc-b9bc255969b3"
+    },
+    {
+      "name": "Pritong Tilapia",
+      "category": "Seafood",
+      "ingredients": [
+        {
+          "name": "Tilapia",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Seafood"
+        }
+      ],
+      "id": "b1ac5bde-bf73-42ef-b00e-d22f3877f554"
+    },
+    {
+      "name": "Tinapa",
+      "category": "Seafood",
+      "ingredients": [
+        {
+          "name": "Smoked Mackerel",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Seafood"
+        },
+        {
+          "name": "Tomato",
+          "quantity": 2,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Salted Egg",
+          "quantity": 2,
+          "unit": "pcs",
+          "category": "Others"
+        },
+        {
+          "name": "Vinegar",
+          "quantity": 0.3,
+          "unit": "cup",
+          "category": "Condiments and Spices"
+        }
+      ],
+      "id": "f48313de-d16d-4550-ad5f-eb056623c82b"
+    },
+    {
+      "name": "Salmon Sinigang",
+      "category": "Seafood",
+      "ingredients": [
+        {
+          "name": "Salmon belly or head",
+          "quantity": 1,
+          "unit": "pack",
+          "category": "Seafood"
+        },
+        {
+          "name": "Sinigang mix",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "Ginger",
+          "quantity": 1,
+          "unit": "slice",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Aubergine",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Tomato",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Red onion",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Fish sauce",
+          "quantity": 1,
+          "unit": "tbsp",
+          "category": "Condiments and Spices"
+        },
+        {
+          "name": "White Radish",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        }
+      ],
+      "id": "b4166795-a4c8-466c-a10b-413971192d58"
+    },
+    {
+      "name": "Pinakbet",
+      "category": "Vegetables",
+      "ingredients": [
+        {
+          "name": "Squash",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Aubergine",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Tomato",
+          "quantity": 2,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Okra",
+          "quantity": 0.5,
+          "unit": "bunch",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Green Beans",
+          "quantity": 1,
+          "unit": "bunch",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Pork/Shrimps (optional)",
+          "quantity": 0.25,
+          "unit": "kg",
+          "category": "Seafood"
+        },
+        {
+          "name": "Bagoong",
+          "quantity": 1,
+          "unit": "tbsp",
+          "category": "Condiments and Spices"
+        }
+      ],
+      "id": "7a85b574-8bad-48d2-8381-0a75685c4902"
+    },
+    {
+      "name": "Ensaladang Talong",
+      "category": "Vegetables",
+      "ingredients": [
+        {
+          "name": "Aubergine",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Tomato",
+          "quantity": 2,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Red onion",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Vinegar",
+          "quantity": 2,
+          "unit": "tbsp",
+          "category": "Condiments and Spices"
+        }
+      ],
+      "id": "da447161-dcfc-460f-8992-c72c94553043"
+    },
+    {
+      "name": "Ginataang kalabasa",
+      "category": "Vegetables",
+      "ingredients": [
+        {
+          "name": "Squash",
+          "quantity": 1,
+          "unit": "pcs",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Malunggay",
+          "quantity": 1,
+          "unit": "bunch",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Garlic",
+          "quantity": 1,
+          "unit": "tbsp",
+          "category": "Fruits and Vegetables"
+        },
+        {
+          "name": "Coconut milk",
+          "quantity": 1,
+          "unit": "can",
+          "category": "Preserved Food"
+        },
+        {
+          "name": "Fish sauce",
+          "quantity": 1,
+          "unit": "tbsp",
+          "category": "Condiments and Spices"
+        }
+      ],
+      "id": "77fd107e-432f-4399-9a99-cc0a8205d723"
+    }
+  ]
+}

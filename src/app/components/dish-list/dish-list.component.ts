@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Dish, DISH_CATEGORIES, DishCategory } from '../../models/dish.model';
 import { DishService } from '../../services/dish.service';
@@ -9,7 +9,7 @@ import { ShoppingListService } from '../../services/shopping-list.service';
 @Component({
   selector: 'app-dish-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './dish-list.component.html',
   styleUrls: ['./dish-list.component.css']
 })
@@ -18,6 +18,7 @@ export class DishListComponent implements OnInit, OnDestroy {
   selectedDishIds: Set<string> = new Set();
   categories = DISH_CATEGORIES;
   dishesByCategory: Record<string, Dish[]> = {};
+  showDeleteAllConfirm = false;
 
   private dishesSubscription!: Subscription;
   private selectedIdsSubscription!: Subscription;
@@ -58,6 +59,22 @@ export class DishListComponent implements OnInit, OnDestroy {
 
   deleteDish(dishId: string): void {
     this.dishService.removeDish(dishId);
+  }
+
+  promptDeleteAll(): void {
+    this.showDeleteAllConfirm = true;
+  }
+
+  cancelDeleteAll(): void {
+    this.showDeleteAllConfirm = false;
+  }
+
+  confirmDeleteAll(): void {
+    const currentDishes = this.dishService.getDishes();
+    for (const dish of currentDishes) {
+      this.dishService.removeDish(dish.id);
+    }
+    this.showDeleteAllConfirm = false;
   }
 
   private groupByCategory(): void {

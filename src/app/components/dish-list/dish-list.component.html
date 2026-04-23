@@ -1,9 +1,27 @@
 <div class="dish-list-container">
-  <h2>My Dishes</h2>
+  <div class="dish-list-header">
+    <h2>My Dishes</h2>
+    <button
+      *ngIf="dishes.length > 0 && !showDeleteAllConfirm"
+      class="btn-delete-all"
+      (click)="promptDeleteAll()"
+      aria-label="Delete all dishes"
+    >
+      Delete All
+    </button>
+  </div>
+
+  <div *ngIf="showDeleteAllConfirm" class="confirm-box">
+    <p class="confirm-text">This will permanently delete all {{ dishes.length }} dishes. Are you sure?</p>
+    <div class="confirm-actions">
+      <button class="btn-confirm-yes" (click)="confirmDeleteAll()">Yes, delete all</button>
+      <button class="btn-confirm-no" (click)="cancelDeleteAll()">Cancel</button>
+    </div>
+  </div>
 
   <div *ngIf="dishes.length > 0; else emptyState">
     <div *ngFor="let cat of activeCategories" class="category-frame">
-      <h3 class="category-title">{{ cat }}</h3>
+      <span class="category-badge">{{ cat }}</span>
 
       <div class="dish-list">
         <div
@@ -43,6 +61,12 @@
   </div>
 
   <ng-template #emptyState>
-    <p class="empty-message">No dishes yet. Add your first dish to get started.</p>
+    <div class="empty-state">
+      <span class="empty-state-icon">🍳</span>
+      <p class="empty-state-text">No dishes yet. Add your first dish to get started!</p>
+      <p class="empty-state-hint">
+        You can also <a routerLink="/import-export" class="empty-state-link">import a collection or load default dishes</a> from the Import/Export page.
+      </p>
+    </div>
   </ng-template>
 </div>

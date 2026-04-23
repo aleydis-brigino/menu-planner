@@ -2,16 +2,25 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1rem;
-  background-color: #2e7d32;
+  padding: 0.9rem 1.5rem;
+  background: var(--gradient-nav);
   color: #fff;
   flex-wrap: wrap;
   gap: 0.5rem;
+  box-shadow: var(--shadow-glow-purple);
+  position: relative;
+  z-index: 10;
 }
 
 .nav-brand {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  animation: slideInLeft 0.4s ease-out;
+}
+
+.nav-brand:hover {
+  animation: wiggle 0.4s ease-in-out;
 }
 
 .nav-links {
@@ -19,35 +28,72 @@
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 0.5rem;
+  gap: 0.4rem;
   flex-wrap: wrap;
 }
+
+.nav-links li {
+  animation: fadeInUp 0.4s ease-out both;
+}
+
+.nav-links li:nth-child(1) { animation-delay: 0.05s; }
+.nav-links li:nth-child(2) { animation-delay: 0.1s; }
+.nav-links li:nth-child(3) { animation-delay: 0.15s; }
+.nav-links li:nth-child(4) { animation-delay: 0.2s; }
 
 .nav-links a {
   color: #fff;
   text-decoration: none;
-  padding: 0.4rem 0.75rem;
-  border-radius: 4px;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-pill);
   font-size: 0.9rem;
-  transition: background-color 0.2s;
+  font-weight: 600;
+  transition: all var(--transition);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: inherit;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::before {
+  transform: scaleX(1);
 }
 
 .nav-links a:hover {
-  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 .nav-links a.active {
-  background-color: rgba(255, 255, 255, 0.25);
-  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .nav-add-btn {
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 2px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+.nav-add-btn:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  transform: translateY(-2px) scale(1.03) !important;
 }
 
 .app-content {
-  padding: 1rem;
+  padding: 2rem 1rem;
   max-width: 960px;
   margin: 0 auto;
+  animation: fadeInUp 0.5s ease-out;
 }

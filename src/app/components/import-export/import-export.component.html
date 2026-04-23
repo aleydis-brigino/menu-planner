@@ -1,6 +1,8 @@
 <div class="import-export-container">
   <h2>Import / Export</h2>
 
+  <p class="import-export-description">Save your collection or bring in dishes from another device.</p>
+
   <div class="actions">
     <button
       class="btn-export"
@@ -27,11 +29,34 @@
     </button>
   </div>
 
+  <hr class="divider" />
+
+  <div class="defaults-section">
+    <p class="defaults-description">Or start fresh with a pre-built set of dishes.</p>
+
+    <button
+      *ngIf="!showDefaultConfirm"
+      class="btn-defaults"
+      (click)="promptLoadDefaults()"
+      aria-label="Load default dish collection"
+    >
+      Load Default Dishes
+    </button>
+
+    <div *ngIf="showDefaultConfirm" class="confirm-box" role="alert">
+      <p class="confirm-text">This will replace all your current dishes. Are you sure?</p>
+      <div class="confirm-actions">
+        <button class="btn-confirm-yes" (click)="confirmLoadDefaults()">Yes, load defaults</button>
+        <button class="btn-confirm-no" (click)="cancelLoadDefaults()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
   <div class="message error-message" *ngIf="errorMessage" role="alert">
     {{ errorMessage }}
   </div>
 
   <div class="message success-message" *ngIf="successMessage" role="status">
-    {{ successMessage }}
+    {{ successMessage }} <a routerLink="/dishes" class="success-link">Go to Dishes →</a>
   </div>
 </div>

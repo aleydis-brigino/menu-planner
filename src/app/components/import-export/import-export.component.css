@@ -1,10 +1,28 @@
 .import-export-container {
-  padding: 1rem;
+  padding: 2rem;
+  max-width: 520px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--color-border-light);
+  box-shadow: var(--shadow-md);
+  animation: popIn 0.4s ease-out;
 }
 
 .import-export-container h2 {
-  margin: 0 0 1rem;
-  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+  font-size: 1.65rem;
+  font-weight: 800;
+  background: var(--gradient-sunset);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.import-export-description {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1.75rem;
+  font-weight: 500;
 }
 
 .actions {
@@ -19,47 +37,162 @@
 
 .btn-export,
 .btn-import {
-  padding: 0.6rem 1.25rem;
+  padding: 0.75rem 1.75rem;
   border: none;
-  border-radius: 4px;
+  border-radius: var(--radius-pill);
   cursor: pointer;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 700;
+  transition: all var(--transition);
 }
 
 .btn-export {
-  background-color: #1976d2;
+  background: var(--gradient-purple);
   color: #fff;
+  box-shadow: 0 2px 12px rgba(132, 94, 247, 0.25);
 }
 
 .btn-export:hover {
-  background-color: #1565c0;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-glow-purple);
 }
 
 .btn-import {
-  background-color: #388e3c;
+  background: var(--gradient-teal);
   color: #fff;
+  box-shadow: 0 2px 12px rgba(32, 201, 151, 0.25);
 }
 
 .btn-import:hover {
-  background-color: #2e7d32;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-glow-teal);
 }
 
 .message {
-  margin-top: 1rem;
-  padding: 0.75rem 1rem;
-  border-radius: 4px;
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.2rem;
+  border-radius: var(--radius-md);
   font-size: 0.9rem;
+  font-weight: 600;
+  animation: fadeInUp 0.3s ease-out;
 }
 
 .error-message {
-  background-color: #ffebee;
-  color: #c62828;
-  border: 1px solid #ef9a9a;
+  background-color: var(--color-danger-light);
+  color: var(--color-danger-dark);
+  border: 2px solid var(--color-danger);
 }
 
 .success-message {
-  background-color: #e8f5e9;
-  color: #2e7d32;
-  border: 1px solid #a5d6a7;
+  background-color: var(--color-teal-light);
+  color: var(--color-teal-dark);
+  border: 2px solid var(--color-teal);
+}
+
+.success-link {
+  color: var(--color-teal-dark);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid var(--color-teal);
+  margin-left: 0.25rem;
+  transition: all var(--transition);
+}
+
+.success-link:hover {
+  color: var(--color-purple-dark);
+  border-bottom-color: var(--color-purple);
+}
+
+/* === Defaults Section === */
+
+.divider {
+  border: none;
+  border-top: 2px solid var(--color-border-light);
+  margin: 2rem 0;
+}
+
+.defaults-section {
+  animation: fadeInUp 0.4s ease-out 0.1s both;
+}
+
+.defaults-description {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.btn-defaults {
+  padding: 0.75rem 1.75rem;
+  border: 2px dashed var(--color-orange);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 700;
+  background: var(--color-orange-light);
+  color: var(--color-orange);
+  transition: all var(--transition);
+}
+
+.btn-defaults:hover {
+  background: var(--color-orange);
+  color: #fff;
+  border-style: solid;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 4px 20px rgba(255, 146, 43, 0.3);
+}
+
+.confirm-box {
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-yellow-light);
+  border: 2px solid var(--color-yellow);
+  animation: popIn 0.3s ease-out;
+}
+
+.confirm-text {
+  margin: 0 0 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-confirm-yes {
+  padding: 0.55rem 1.25rem;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--gradient-coral);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transition);
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.2);
+}
+
+.btn-confirm-yes:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-coral);
+}
+
+.btn-confirm-no {
+  padding: 0.55rem 1.25rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-confirm-no:hover {
+  background: var(--color-border-light);
+  color: var(--color-text);
 }

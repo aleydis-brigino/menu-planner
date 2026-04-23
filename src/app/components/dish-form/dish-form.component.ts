@@ -118,4 +118,11 @@ export class DishFormComponent implements OnInit {
   cancel(): void {
     this.router.navigate(['/dishes']);
   }
+
+  focusIngredientCategory(index: number): void {
+    const el = document.getElementById('ingredientCategory' + index);
+    if (el) {
+      el.focus();
+    }
+  }
 }

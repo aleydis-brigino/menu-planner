@@ -1,4 +1,123 @@
-/* === Base Styles (Mobile-First) === */
+/* === Bold & Playful Theme — Base Styles (Mobile-First) === */
+
+:root {
+  /* Vibrant palette */
+  --color-coral: #ff6b6b;
+  --color-coral-dark: #ee5a5a;
+  --color-coral-light: #ffe0e0;
+  --color-purple: #845ef7;
+  --color-purple-dark: #7048e8;
+  --color-purple-light: #e5dbff;
+  --color-teal: #20c997;
+  --color-teal-dark: #12b886;
+  --color-teal-light: #c3fae8;
+  --color-lime: #a9e34b;
+  --color-lime-dark: #82c91e;
+  --color-yellow: #fcc419;
+  --color-yellow-light: #fff3bf;
+  --color-pink: #f06595;
+  --color-blue: #339af0;
+  --color-blue-light: #d0ebff;
+  --color-orange: #ff922b;
+  --color-orange-light: #ffe8cc;
+
+  /* Neutrals */
+  --color-bg: #f8f9ff;
+  --color-surface: #ffffff;
+  --color-text: #1a1a2e;
+  --color-text-secondary: #6c6c8a;
+  --color-text-muted: #9e9eb8;
+  --color-border: #e8e8f0;
+  --color-border-light: #f0f0f8;
+
+  /* Danger */
+  --color-danger: #ff6b6b;
+  --color-danger-dark: #fa5252;
+  --color-danger-light: #ffe3e3;
+
+  /* Radii */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 50px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(26, 26, 46, 0.06);
+  --shadow-md: 0 4px 20px rgba(26, 26, 46, 0.08);
+  --shadow-lg: 0 8px 32px rgba(26, 26, 46, 0.12);
+  --shadow-glow-coral: 0 4px 20px rgba(255, 107, 107, 0.3);
+  --shadow-glow-purple: 0 4px 20px rgba(132, 94, 247, 0.3);
+  --shadow-glow-teal: 0 4px 20px rgba(32, 201, 151, 0.3);
+
+  /* Gradients */
+  --gradient-coral: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 50%, #f06595 100%);
+  --gradient-purple: linear-gradient(135deg, #845ef7 0%, #7048e8 50%, #5f3dc4 100%);
+  --gradient-teal: linear-gradient(135deg, #20c997 0%, #12b886 50%, #0ca678 100%);
+  --gradient-sunset: linear-gradient(135deg, #ff6b6b 0%, #f06595 50%, #845ef7 100%);
+  --gradient-ocean: linear-gradient(135deg, #339af0 0%, #20c997 100%);
+  --gradient-nav: linear-gradient(135deg, #845ef7 0%, #5f3dc4 40%, #7048e8 100%);
+
+  /* Timing */
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* === Keyframe Animations === */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  70% {
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* === Base Reset === */
 
 *,
 *::before,
@@ -14,23 +133,30 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 1rem;
-  line-height: 1.5;
-  color: #333;
-  background-color: #fafafa;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(132, 94, 247, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(255, 107, 107, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(32, 201, 151, 0.03) 0%, transparent 50%);
+  min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-weight: 600;
-  line-height: 1.2;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
 }
 
-h1 { font-size: 1.75rem; }
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.25rem; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.65rem; }
+h3 { font-size: 1.3rem; }
 
 p {
   margin-top: 0;
@@ -38,18 +164,25 @@ p {
 }
 
 a {
-  color: #2e7d32;
+  color: var(--color-purple);
   text-decoration: none;
+  transition: color var(--transition);
 }
 
 a:hover {
-  text-decoration: underline;
+  color: var(--color-purple-dark);
+  text-decoration: none;
 }
 
 button {
   cursor: pointer;
   font-family: inherit;
   font-size: inherit;
+  transition: all var(--transition);
+}
+
+button:active {
+  transform: scale(0.96);
 }
 
 input, select, textarea {
@@ -61,58 +194,69 @@ ul {
   padding-left: 1.25rem;
 }
 
-/* === Responsive Layout === */
+/* === Scrollbar === */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* === Selection === */
+
+::selection {
+  background-color: var(--color-purple-light);
+  color: var(--color-purple-dark);
+}
+
+/* === Responsive === */
 
 @media screen and (min-width: 576px) {
-  body {
-    font-size: 1rem;
-  }
+  body { font-size: 1rem; }
 }
 
 @media screen and (min-width: 768px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.75rem; }
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
   h3 { font-size: 1.5rem; }
 }
 
 @media screen and (min-width: 992px) {
-  body {
-    font-size: 1.05rem;
-  }
+  body { font-size: 1.05rem; }
 }
 
-/* === Print Stylesheet === */
+/* === Print === */
 
 @media print {
-  .app-nav,
-  nav,
-  .nav-links,
-  .nav-brand,
-  button,
-  .no-print {
+  .app-nav, nav, .nav-links, .nav-brand, button, .no-print {
     display: none !important;
   }
-
   body {
     background: #fff;
     color: #000;
     font-size: 12pt;
     line-height: 1.4;
   }
-
   .app-content {
     max-width: 100%;
     padding: 0;
     margin: 0;
   }
-
   * {
     box-shadow: none !important;
     border-radius: 0 !important;
+    animation: none !important;
   }
-
-  a {
-    color: #000;
-    text-decoration: none;
-  }
+  a { color: #000; text-decoration: none; }
 }
